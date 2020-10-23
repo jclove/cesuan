@@ -1,0 +1,21 @@
+1、服务器环境要求
+   php7以上、nginx、（缓存可选redis）
+   nginx 配置
+	location / {
+		try_files $uri $uri/ /index.php?$query_string;
+	}
+2、配置根目录下.env文件
+   配置项目名称，
+   数据库信息
+   等
+3、配置公众号 和 支付
+   在 config/pay.php  和 wechat.php 配置，有注解
+4、导入数据库
+   在项目目录执行
+   php artisan migrate 即可自动导入
+5、初始化后台账号
+   php artisan db:seed
+6、如果想配置路由缓存 和 配置缓存，执行
+   php artisan config:cache
+   php artisan route:cache   
+
